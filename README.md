@@ -36,3 +36,9 @@ Từ đó: đảng viên đăng nhập bằng họ tên + mã PIN tự đặt; d
 - Tệp minh chứng được đặt chế độ "ai có liên kết đều xem được". Không tải tài liệu mật.
 - Mã PIN cá nhân nên 6 chữ số; không dùng chung. Không chia sẻ `ADMIN_PIN`.
 - Sau khi sửa `Code.gs` phải triển khai lại phiên bản mới.
+
+## Cập nhật theo Quy định 366-QĐ/TW (30/8/2025)
+- Nhóm tiêu chí chung (30 điểm) dùng nội dung **Phụ lục 4** (cá nhân không giữ chức vụ lãnh đạo, quản lý): 3 nhóm, 16 tiêu chí. Quy định chỉ nêu tổng 30 điểm, không chia điểm từng nhóm; mức chia mặc định 18/4/8 nằm ở hằng số `GM` trong `index.html` (dòng chú thích bắt đầu bằng "Phụ lục 4").
+- Xếp loại theo **Điều 11**: ngưỡng 90/70/50; xuất sắc cần ≥30% nhiệm vụ vượt mức; chậm tiến độ ≤20% nhiệm vụ mới còn đạt "Hoàn thành"; >50% nhiệm vụ không hoàn thành hoặc vi phạm điều đảng viên không được làm ⇒ "Không hoàn thành".
+- Bản chấm đã lưu theo mã tiêu chí cũ (1.1 … 3.4) sẽ không còn khớp, cần đánh dấu lại phần A.
+- Đăng nhập chỉ hoạt động khi `window.KPI_API` có địa chỉ `/exec`; nếu để trống, đầu trang hiện dòng cảnh báo vàng.
