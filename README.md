@@ -1,1 +1,38 @@
-# KPI-dang-vien
+# KPI Đảng viên – Trường TH&THCS Vĩnh Gia 2
+
+Ứng dụng web (cài được lên điện thoại) để đảng viên tự chấm điểm KPI 100 điểm = 30 (tiêu chí chung) + 70 (6 trục nhiệm vụ), tải minh chứng; quản trị xem tổng hợp, xếp loại, xuất Excel.
+
+## Các tệp
+- `index.html` – ứng dụng chính
+- `manifest.webmanifest`, `sw.js`, `icons/` – để cài như ứng dụng và dùng khi mất mạng
+- `Code.gs` – mã Google Apps Script lưu dữ liệu vào Google Trang tính của quản trị
+
+## Bước 1. Đưa lên GitHub Pages
+1. Tạo kho mới, tên không dấu, ví dụ `kpi-dang-vien`.
+2. Tải **tất cả** tệp và thư mục `icons` lên **thư mục gốc** của kho (cùng cấp README).
+3. Settings → Pages → Source: *Deploy from a branch* → nhánh `main`, thư mục `/ (root)` → Save.
+4. Chờ 1–3 phút, mở `https://<tài-khoản>.github.io/<tên-kho>/`.
+
+Chỉ làm đến bước này là dùng được ở **chế độ cá nhân**: mỗi người chấm trên máy mình, chưa có tổng hợp chung.
+
+## Cách khác: đưa lên Netlify (không cần GitHub)
+1. Vào app.netlify.com/drop, đăng nhập.
+2. Kéo cả **thư mục** đã giải nén (chứa `index.html`) vào khung "Drag and drop your site folder here".
+3. Netlify cấp ngay địa chỉ dạng `ten-ngau-nhien.netlify.app`; đổi tên ở Site configuration → Change site name.
+4. Muốn cập nhật: vào tab Deploys, kéo thả thư mục mới đè lên.
+Bước 2 bên dưới (nộp chung về Google Trang tính) làm giống hệt: sửa `window.KPI_API` trong `index.html` rồi triển khai lại.
+
+## Bước 2. Bật nộp chung về Google Trang tính (khuyến nghị)
+1. Đăng nhập email cá nhân của quản trị, tạo một Google Trang tính mới.
+2. Tiện ích mở rộng → Apps Script → xóa mã cũ, dán toàn bộ `Code.gs`.
+3. Đổi `ADMIN_PIN` thành mã quản trị riêng của bạn.
+4. Triển khai → Tùy chọn triển khai mới → Ứng dụng web: *Thực thi với tư cách: Tôi*; *Người có quyền truy cập: Bất kỳ ai* → Triển khai, cấp quyền khi Google hỏi.
+5. Sao chép URL ứng dụng web (kết thúc bằng `/exec`).
+6. Mở `index.html`, tìm dòng `window.KPI_API='';` và dán URL vào giữa hai dấu nháy. Lưu lại và tải đè lên GitHub.
+
+Từ đó: đảng viên đăng nhập bằng họ tên + mã PIN tự đặt; dữ liệu và bảng tổng hợp xuất hiện ở trang tính `DuLieu`; tệp minh chứng nằm trong thư mục Drive `KPI-MinhChung`. Quản trị đăng nhập, tick "Tôi là quản trị" và nhập `ADMIN_PIN` để mở tab Tổng hợp.
+
+## Lưu ý bảo mật
+- Tệp minh chứng được đặt chế độ "ai có liên kết đều xem được". Không tải tài liệu mật.
+- Mã PIN cá nhân nên 6 chữ số; không dùng chung. Không chia sẻ `ADMIN_PIN`.
+- Sau khi sửa `Code.gs` phải triển khai lại phiên bản mới.

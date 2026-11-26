@@ -1,0 +1,23 @@
+{
+ "name": "KPI Đảng viên – TH&THCS Vĩnh Gia 2",
+ "short_name": "KPI Đảng viên",
+ "start_url": "./index.html",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#a4161a",
+ "theme_color": "#a4161a",
+ "lang": "vi",
+ "icons": [
+  {
+   "src": "icons/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icons/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ]
+}
