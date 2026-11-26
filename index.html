@@ -104,7 +104,8 @@ nav .in{justify-content:center}
 <main><section id="me"></section><section id="ad" hidden></section></main>
 <script>
 /* ===== CẤU HÌNH: dán địa chỉ Web app của Google Apps Script vào đây để cả chi bộ nộp chung về một trang tính ===== */
-window.KPI_API='https://script.google.com/macros/s/AKfycbyz-ejCXUVVq40MguRops49IuVf5yNcxOWNGGsco1wvKetpdp_XX9tSpcqqNbjmCSkB/exec';
+window.KPI_API='';/* DÁN địa chỉ Web app Apps Script (…/exec) vào giữa hai dấu nháy để BẬT đăng nhập + nộp chung. Để trống = chế độ cá nhân, KHÔNG có đăng nhập. */
+if(!window.KPI_API)document.addEventListener('DOMContentLoaded',()=>{const b=document.createElement('div');b.style.cssText='background:#fff3d6;color:#7a4b00;border-bottom:2px solid #c8962b;padding:8px 14px;font:600 13px Segoe UI,Arial,sans-serif;text-align:center';b.textContent='⚠ Chưa cấu hình KPI_API: bước đăng nhập và nộp chung đang TẮT (chế độ cá nhân). Xem README, Bước 2.';document.body.prepend(b);});
 /* ===== Lớp kết nối Google Sheets (chỉ chạy khi có KPI_API và không mở trong claude.ai) ===== */
 (function(){
  const API=window.KPI_API||'';
@@ -152,8 +153,9 @@ window.KPI_API='https://script.google.com/macros/s/AKfycbyz-ejCXUVVq40MguRops49I
 })();
 </script>
 <script>
-const IT=[["1.1", 2, "Tuyệt đối trung thành với Đảng, Tổ quốc và Nhân dân; kiên định chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh, mục tiêu độc lập dân tộc và chủ nghĩa xã hội. Có lập trường, quan điểm, bản lĩnh chính trị vững vàng; kiên quyết bảo vệ nền tảng tư tưởng, Cương lĩnh chính trị, đường lối của Đảng, Hiến pháp, pháp luật của Nhà nước; đấu tranh phản bác các quan điểm sai trái, thù địch, các biểu hiện suy thoái, \"tự diễn biến\", \"tự chuyển hoá\"."], ["1.2", 2, "Có tinh thần yêu nước sâu sắc, tận tuỵ phục vụ Nhân dân, sâu sát cơ sở, luôn hành động vì lợi ích của Nhân dân. Đặt lợi ích của Đảng, quốc gia - dân tộc, Nhân dân, tập thể lên trên lợi ích cá nhân, sẵn sàng hy sinh vì sự nghiệp cách mạng của Đảng, vì độc lập, tự do của Tổ quốc, vì hạnh phúc của Nhân dân."], ["1.3", 2, "Chấp hành nghiêm chủ trương, đường lối, nghị quyết, chỉ thị, quy định, nguyên tắc tổ chức, kỷ luật của Đảng, nhất là nguyên tắc tập trung dân chủ, tự phê bình và phê bình; chấp hành nghiêm pháp luật của Nhà nước và quy định của cơ quan, đơn vị. Tuyệt đối chấp hành sự phân công của tổ chức, yên tâm công tác và hoàn thành tốt mọi nhiệm vụ được giao."], ["1.4", 2, "Có tinh thần tự giác, trách nhiệm cao trong nghiên cứu, học tập chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh, các nghị quyết, chỉ thị của Đảng và các chương trình bồi dưỡng, cập nhật kiến thức mới nhằm nâng cao trình độ về mọi mặt, đáp ứng yêu cầu, nhiệm vụ."], ["1.5", 2, "Có phẩm chất đạo đức, lối sống trong sáng, trung thực, khiêm tốn, chân thành, giản dị; cần, kiệm, liêm, chính, chí công vô tư; chấp hành nghiêm quy định về chuẩn mực đạo đức cách mạng của cán bộ, đảng viên trong giai đoạn mới, trách nhiệm nêu gương; không vi phạm Quy định về những điều đảng viên không được làm. Không né tránh công việc, chạy theo thành tích; không vi phạm đạo đức, lối sống đến mức bị xử lý kỷ luật."], ["1.6", 2, "Không tham vọng quyền lực; không chạy chức, chạy quyền; không tham nhũng, lãng phí, cơ hội, vụ lợi, cục bộ, lợi ích nhóm; không để gia đình, người thân và người khác lợi dụng chức vụ, vị trí công tác để trục lợi. Không có biểu hiện suy thoái về tư tưởng chính trị, đạo đức, lối sống, những biểu hiện \"tự diễn biến\", \"tự chuyển hoá\" trong nội bộ. Kiên quyết đấu tranh chống quan liêu, cửa quyền, tham nhũng, xa hoa, lãng phí, tiêu cực, chủ nghĩa cá nhân, lối sống cơ hội, thực dụng, bè phái, lợi ích nhóm, nói không đi đôi với làm."], ["1.7", 2, "Có uy tín cao, tiêu biểu về phẩm chất đạo đức và phong cách công tác; là trung tâm đoàn kết, thương yêu đồng chí, đồng nghiệp."], ["1.8", 2, "Có tinh thần chủ động, đổi mới sáng tạo; phấn đấu vì mục tiêu phát triển của cơ quan, đơn vị, đóng góp vào mục tiêu chung của đất nước."], ["1.9", 2, "Thực hiện việc kê khai và công khai tài sản, thu nhập theo quy định. Báo cáo đầy đủ, trung thực, cung cấp thông tin chính xác, khách quan về những nội dung liên quan đến việc thực hiện chức trách, nhiệm vụ được giao và hoạt động của cơ quan, tổ chức, đơn vị với cấp trên khi được yêu cầu."], ["2.1", 1, "Có tư duy đổi mới, tầm nhìn chiến lược, khả năng lãnh đạo, chỉ đạo thích ứng với sự phát triển của thời đại và xu thế toàn cầu hoá; phương pháp làm việc khoa học, nhạy bén chính trị; có năng lực cụ thể hoá trong lãnh đạo, chỉ đạo cơ quan, đơn vị thực hiện và hoàn thành tốt chức năng, nhiệm vụ được giao."], ["2.2", 1, "Luôn bám sát thực tiễn, có nhiều cách làm hay, sáng tạo, đạt hiệu quả cao trong lãnh đạo, chỉ đạo, tổ chức thực hiện nhiệm vụ; xây dựng cấp uỷ, tổ chức đảng trong sạch, vững mạnh, cơ quan, đơn vị vững mạnh toàn diện."], ["2.3", 1, "Nói đi đôi với làm, dám nghĩ, dám làm, dám chịu trách nhiệm, dám đột phá vì lợi ích chung. Có khả năng phân tích, dự báo tình hình, phát hiện những khó khăn, bất cập, thời cơ, thuận lợi trong thực tiễn; đề xuất hoặc quyết định những giải pháp phù hợp, kịp thời, hiệu quả."], ["2.4", 1, "Có khát vọng phấn đấu, cống hiến; có khả năng quy tụ và phát huy được sức mạnh của tập thể, cá nhân trong cơ quan, đơn vị và các cơ quan, đơn vị có liên quan."], ["3.1", 2, "Chủ động, nghiêm túc thực hiện tự phê bình và phê bình, có tinh thần cầu thị và tiếp thu phản biện, góp ý."], ["3.2", 2, "Có kế hoạch rõ ràng và quyết liệt trong khắc phục hạn chế, khuyết điểm đã được chỉ ra."], ["3.3", 2, "Kết quả khắc phục hoàn thành từ > 80% nội dung, có tiến bộ rõ, được tổ chức đánh giá tốt; không để tái diễn tồn tại."], ["3.4", 2, "Tự soi, tự sửa trên tinh thần trách nhiệm chính trị cao, không né tránh, không đổ lỗi."]];
-const GT=[{"t": "Về phẩm chất chính trị, đạo đức, lối sống, thực hiện trách nhiệm nêu gương", "max": 18}, {"t": "Tư duy đổi mới, chiến lược, khát vọng cống hiến, dám nghĩ, dám làm", "max": 4}, {"t": "Về tự phê bình và phê bình, tự soi, tự sửa, khắc phục hạn chế, khuyết điểm", "max": 8}];
+/* Phụ lục 4, Quy định 366-QĐ/TW (30/8/2025): cá nhân không giữ chức vụ lãnh đạo, quản lý. Quy định chỉ nêu tổng 30 điểm, không chia điểm từng nhóm: GM là mức chia mặc định của đơn vị (18/4/8), có thể đổi tại đây. */
+const IT=[["1.a", 1.8, "Có quan điểm, bản lĩnh chính trị vững vàng; kiên định lập trường; không dao động trước mọi khó khăn, thách thức."], ["1.b", 1.8, "Thực hiện nghiêm các nguyên tắc tổ chức và hoạt động của Đảng, nhất là nguyên tắc tập trung dân chủ, tự phê bình và phê bình. Chấp hành đường lối, chủ trương của Đảng, chính sách, pháp luật của Nhà nước; thực hiện nghiêm về kỷ luật phát ngôn, bảo vệ bí mật nhà nước."], ["1.c", 1.8, "Có ý thức nghiên cứu, học tập, vận dụng chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh, nghị quyết, chỉ thị, quyết định và các văn bản của Đảng."], ["1.d", 1.8, "Giữ gìn phẩm chất đạo đức, lối sống trong sáng, trung thực, khiêm tốn, chân thành, giản dị; có ý thức tham gia công tác đấu tranh phòng, chống tham nhũng, lãng phí, tiêu cực; không có biểu hiện suy thoái về tư tưởng chính trị, đạo đức, lối sống, \"tự diễn biến\", \"tự chuyển hoá\"; không vi phạm Quy định về những điều đảng viên không được làm."], ["1.đ", 1.8, "Không tham ô, tham nhũng, tiêu cực, quan liêu, hách dịch, cửa quyền, vụ lợi; không để người thân, người quen lợi dụng quyền hạn của mình để trục lợi."], ["1.e", 1.8, "Có ý thức tổ chức kỷ luật, tinh thần trách nhiệm trong công tác; chấp hành sự phân công của tổ chức; thực hiện các quy định, quy chế, nội quy của tổ chức, cơ quan, đơn vị nơi công tác."], ["1.g", 1.8, "Thực hiện việc kê khai và công khai tài sản, thu nhập theo quy định."], ["1.h", 1.8, "Báo cáo đầy đủ, trung thực, cung cấp thông tin chính xác, khách quan về những nội dung liên quan đến việc thực hiện chức trách, nhiệm vụ được giao và hoạt động của tổ chức, cơ quan, đơn vị với cấp trên khi được yêu cầu."], ["1.i", 1.8, "Giữ gìn đoàn kết nội bộ; có quan hệ tốt với đồng chí, đồng nghiệp; tích cực tham gia xây dựng tổ chức đảng, đoàn thể và các hoạt động xã hội, cộng đồng và phong trào tập thể do tổ chức, cơ quan, đơn vị tổ chức."], ["1.k", 1.8, "Gần gũi, sâu sát với cơ sở; thực hiện tốt việc giữ mối liên hệ với cấp ủy và Nhân dân nơi cư trú."], ["2.a", 1.0, "Năng lực chuyên môn, nghiệp vụ theo yêu cầu của vị trí việc làm: hiểu biết đầy đủ về lĩnh vực công tác được phân công; nắm vững quy định pháp luật, quy trình nghiệp vụ; thường xuyên cập nhật kiến thức mới, có khả năng nghiên cứu, phân tích, tổng hợp và vận dụng sáng tạo vào công việc; có kỹ năng xử lý công việc độc lập, làm việc nhóm hiệu quả; sử dụng công nghệ thông tin, áp dụng vào công việc chuyên môn."], ["2.b", 1.0, "Khả năng đáp ứng yêu cầu thực thi nhiệm vụ được giao: nhiệm vụ thường xuyên – vận dụng thành thạo kiến thức chuyên môn, nghiệp vụ, duy trì ổn định chất lượng chuyên môn; nhiệm vụ đột xuất – đề xuất giải pháp, thực hiện hiệu quả các công việc phát sinh, phản ứng kịp thời."], ["2.c", 1.0, "Thái độ công tác trong thực hiện nhiệm vụ: tinh thần trách nhiệm, tích cực, kịp thời tiếp cận kiến thức mới, đề xuất cải tiến; thái độ đúng mực, phong cách làm việc chuẩn mực, lề lối hành chính chuyên nghiệp; phối hợp có hiệu quả với tập thể, cá nhân có liên quan."], ["2.d", 1.0, "Tinh thần đổi mới sáng tạo, dám nghĩ, dám làm, dám chịu trách nhiệm vì lợi ích chung: có sản phẩm, giải pháp đột phá, sáng tạo đem lại giá trị, hiệu quả thiết thực; sẵn sàng tham gia nhiệm vụ chính trị, nhiệm vụ đột xuất, phức tạp hoặc khó khăn; chịu trách nhiệm trước kết quả công việc, sẵn sàng nhận trách nhiệm khi có sai sót và có biện pháp khắc phục rõ ràng."], ["3.a", 4.0, "Tinh thần tự phê bình, tự soi, tự sửa của cá nhân; mức độ tự giác nhận diện hạn chế, khuyết điểm của bản thân."], ["3.b", 4.0, "Kết quả khắc phục những hạn chế, khuyết điểm đã được chỉ ra."]];
+const GT=[{"t": "Về chính trị, phẩm chất đạo đức và ý thức tổ chức kỷ luật", "max": 18}, {"t": "Năng lực chuyên môn, nghiệp vụ; khả năng đáp ứng nhiệm vụ; thái độ công tác; tinh thần đổi mới sáng tạo, dám nghĩ, dám làm, dám chịu trách nhiệm", "max": 4}, {"t": "Về tự phê bình và phê bình, khắc phục hạn chế, khuyết điểm", "max": 8}];
 const AX=[[1, "Thực hiện các mục tiêu và nhiệm vụ chính trị được giao (Trục 1)", 30], [2, "Việc cụ thể hóa, triển khai thực hiện các chương trình, đề án, kế hoạch, quy định (Trục 2)", 15], [3, "Việc phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số (Trục 3)", 10], [4, "Việc xây dựng đảng và hệ thống chính trị trong sạch, vững mạnh; giữ gìn đoàn kết, thống nhất nội bộ; phòng, chống tham nhũng, lãng phí, tiêu cực (Trục 4)", 5], [5, "Việc phát triển văn hóa, con người, bảo đảm an sinh xã hội, nâng cao đời sống nhân dân (Trục 5)", 5], [6, "Việc củng cố quốc phòng, an ninh, giữ vững ổn định chính trị - xã hội, nâng cao hiệu quả đối ngoại và hội nhập quốc tế (Trục 6)", 5]];
 const $=s=>document.querySelector(s);
 const h=(t,p,...k)=>{const e=document.createElement(t);for(const a in p||{}){const v=p[a];if(a==='class')e.className=v;else if(a==='text')e.textContent=v;else if(a==='value')e.value=v;else if(a.startsWith('on'))e.addEventListener(a.slice(2),v);else if(v===true)e.setAttribute(a,'');else if(v!==false&&v!=null)e.setAttribute(a,v);}k.flat().forEach(c=>c!=null&&e.append(c.nodeType?c:document.createTextNode(c)));return e;};
@@ -174,14 +176,14 @@ const kl=k=>k.replace('Q0',' · Cả năm').replace('Q',' · Quý ');
 function calc(r){
  const a=r.a||{};let A=0,miss=0;const gp=[0,0,0];
  IT.forEach(i=>{const v=av(a[i[0]]);if(v===1){A+=i[1];gp[gOf(i[0])]+=i[1];}if(!v)miss++;});
- const mxo=r.mx||{},inc=[],slow=[];let over=false,ntask=0;
+ const mxo=r.mx||{},inc=[],slow=[];let over=false,ntask=0,over_n=0;
  const ax=AX.map(m=>{const id=m[0],ts=(r.ax||{})[id]||[];let P=0,Sa=0,Sb=0,Sc=0,Sd=0;
   const rows=ts.map(t=>{const c=num(t.coef)||1,p=num(t.plan),d=num(t.done),qa=bl(t.qa)?d:num(t.qa),ta=bl(t.ta)?d:num(t.ta),la=bl(t.la)?d:num(t.la);
    const row={c,p,d,qa,ta,la,P:p*c,Sa:Math.min(d,p)*c,Sb:qa*c,Sc:ta*c,Sd:la*c};
    P+=row.P;Sa+=row.Sa;Sb+=row.Sb;Sc+=row.Sc;Sd+=row.Sd;ntask++;
    if(d<p)inc.push((t.name||'(chưa đặt tên)'));
    if(ta<p)slow.push(t.name||'(chưa đặt tên)');
-   if(d>p||qa>p||ta>p||la>p)over=true;
+   if(d>p||qa>p||ta>p||la>p){over=true;over_n++;}
    return row;});
   const has=P>0,A_=has?Sa/P:0,B_=has?Sb/P:0,C_=has?Sc/P:0,D_=has?Sd/P:0;
   const max=bl(mxo[id])?m[2]:num(mxo[id]);
@@ -190,7 +192,7 @@ function calc(r){
  ax.forEach(x=>{x.eff=x.na?0:x.max*f;x.pts=x.na?0:Math.min(x.kpi,1)*x.eff;});
  const B=r2(ax.reduce((s,x)=>s+x.pts,0));
  const pend=ax.filter(x=>!x.na&&!x.has).length;
- return{A,gp,miss,ax,B,T:r2(A+B),inc,slow,over,ntask,pend,sm,done:miss===0&&pend===0&&ntask>0};
+ gp[0]=r2(gp[0]);gp[1]=r2(gp[1]);gp[2]=r2(gp[2]);A=r2(A);return{A,gp,miss,ax,B,T:r2(A+B),nOver:over_n,fast:ntask-slow.length,inc,slow,over,ntask,pend,sm,done:miss===0&&pend===0&&ntask>0};
 }
 function qsOf(r,per){const o=[];if(String(r.quarter)!=='0')return o;['1','2','3','4'].forEach(q=>{const p=(per||{})[r.year+'Q'+q];if(p){const c=calc(p);o.push({q,T:c.T,lv:rate(p,c).lv});}});return o;}
 function rate(r,c,per){
@@ -203,6 +205,17 @@ function rate(r,c,per){
  if(f.kl){lv=3;why.push('Có kết luận của cấp có thẩm quyền thuộc diện Không hoàn thành nhiệm vụ.');}
  if(f.col70&&f.head){lv=3;why.push('Người đứng đầu, tập thể phụ trách hoàn thành dưới 70% nhiệm vụ, chỉ tiêu ⇒ Không hoàn thành nhiệm vụ (HD 14, mục 6.3).');}
  else if(f.col70&&lv===0){lv=1;why.push('Tập thể hoàn thành dưới 70% nhiệm vụ ⇒ cấp phó, thành viên không xếp Hoàn thành xuất sắc (HD 14, mục 6.3).');}
+
+ /* Điều 11, Quy định 366-QĐ/TW: điều kiện đối với cá nhân không giữ chức vụ lãnh đạo, quản lý */
+ const nt=c.ntask||0;
+ if(f.vp){lv=3;why.push('Bị kết luận suy thoái / vi phạm điều đảng viên không được làm, quy định về trách nhiệm nêu gương, hoặc bị kỷ luật từ khiển trách trở lên liên quan công vụ ⇒ Không hoàn thành nhiệm vụ (Điều 11, Khoản 4.3a).');}
+ if(nt&&c.inc.length/nt>0.5){lv=3;why.push('Trên 50% số nhiệm vụ không hoàn thành ⇒ Không hoàn thành nhiệm vụ (Điều 11, Khoản 4.3b).');}
+ if(nt&&c.slow.length){const r=c.slow.length/nt;
+  if(r>0.2){if(lv<3){lv=3;why.push('Số nhiệm vụ chưa bảo đảm tiến độ vượt 20% ('+c.slow.length+'/'+nt+') ⇒ không đủ điều kiện mức Hoàn thành nhiệm vụ (Điều 11, Khoản 3.3).');}}
+  else if(lv<2){lv=2;why.push('Có nhiệm vụ chưa đúng hạn ('+c.slow.length+'/'+nt+', không quá 20%) ⇒ chỉ đạt mức Hoàn thành nhiệm vụ; mức Hoàn thành tốt và xuất sắc yêu cầu 100% nhiệm vụ đúng hạn, bảo đảm chất lượng (Điều 11, Khoản 1.3, 2.3, 3.3).');}}
+ if(lv===0&&f.kp){lv=1;why.push('Chưa khắc phục 100% hạn chế, khuyết điểm đã được chỉ ra ở kỳ kiểm điểm trước ⇒ chưa đủ điều kiện Hoàn thành xuất sắc (Điều 11, Khoản 1.4).');}
+ if(lv===0&&nt&&c.nOver/nt<0.3){lv=1;why.push('Chỉ '+c.nOver+'/'+nt+' nhiệm vụ hoàn thành vượt mức yêu cầu (<30%) ⇒ chưa đủ điều kiện Hoàn thành xuất sắc (Điều 11, Khoản 1.3).');}
+ else if(lv===0&&nt)why.push('Có '+c.nOver+'/'+nt+' nhiệm vụ (từ 30% trở lên) hoàn thành vượt mức yêu cầu ⇒ đủ điều kiện để cấp có thẩm quyền xem xét Hoàn thành xuất sắc (Điều 11, Khoản 1.3). Lưu ý Khoản 1.5: số Hoàn thành xuất sắc không quá 20% số Hoàn thành tốt cùng nhóm đối tượng.');
  if(lv===0&&!c.over){lv=1;why.push('Chưa có kết quả nổi trội, vượt mức yêu cầu (số lượng, chất lượng hoặc tiến độ vượt kế hoạch) ⇒ chưa đủ điều kiện xét Hoàn thành xuất sắc (HD 14, mục 1.3).');}
  else if(lv===0)why.push('Có nhiệm vụ vượt mức yêu cầu đề ra – đủ điều kiện để cấp có thẩm quyền xem xét Hoàn thành xuất sắc (HD 14, mục 1.3).');
  const qs=qsOf(r,per);
@@ -213,10 +226,11 @@ function rate(r,c,per){
 }
 let db=null,U=null,uid=null,who=null,isAdmin=false,MY={periods:{}},RT={periods:{}},S,R,tm,KALL=[],RALL={},SIG=null;
 const now=new Date(),Y0=String(now.getFullYear()),Q0=String(Math.ceil((now.getMonth()+1)/3));
-const newS=(y,q)=>({v:2,year:y,quarter:q,info:{name:(who&&who.name)||'',dob:'',partyRole:'',govRole:'',unionRole:'',unit:'',org:'',place:''},a:{},an:{},na:{},mx:{},ax:{1:[],2:[],3:[],4:[],5:[],6:[]},ev:{},flags:{},dx:''});
+const newS=(y,q)=>({v:2,year:y,quarter:q,info:{name:(who&&who.name)||'',dob:'',partyRole:'',govRole:'',unionRole:'',unit:'',party:'',org:'',place:''},a:{},an:{},na:{},mx:{},ax:{1:[],2:[],3:[],4:[],5:[],6:[]},ev:{},flags:{},dx:''});
 const newTask=()=>({name:'',prod:'',td:'',plan:'1',coef:'1',done:'0',qa:'',ta:'',la:'',muc:'',note:'',ev:[]});
 const key=()=>S.year+'Q'+S.quarter;
-function pick(y,q){S=MY.periods[y+'Q'+q]||newS(y,q);S.info=S.info||{};S.flags=S.flags||{};S.mx=S.mx||{};S.an=S.an||{};S.ax=S.ax||{};AX.forEach(m=>{S.ax[m[0]]=S.ax[m[0]]||[];});S.ev=S.ev||{};S.na=S.na||{};S.a=S.a||{};render();}
+function pick(y,q){let pv=null;if(S&&S.year){const st=$('#st');if(st&&st.textContent==='Đang lưu…'){clearTimeout(tm);save();}pv=JSON.parse(JSON.stringify(S.info||{}));}
+ const ex=MY.periods[y+'Q'+q];S=ex||newS(y,q);if(!ex&&pv)S.info=Object.assign({},S.info,pv);S.info=S.info||{};S.flags=S.flags||{};S.mx=S.mx||{};S.an=S.an||{};S.ax=S.ax||{};AX.forEach(m=>{S.ax[m[0]]=S.ax[m[0]]||[];});S.ev=S.ev||{};S.na=S.na||{};S.a=S.a||{};render();}
 function dirty(){const st=$('#st');if(st)st.textContent='Đang lưu…';clearTimeout(tm);tm=setTimeout(save,1200);upd();}
 async function save(){
  const st=$('#st');S.updated=Date.now();MY.periods[key()]=JSON.parse(JSON.stringify(S));
@@ -244,30 +258,31 @@ function render(){
  const root=$('#me');root.textContent='';R={it:{},gp:[],ax:{},tk:{}};
  const qs=h('select',{onchange:e=>pick(S.year,e.target.value)},['0','1','2','3','4'].map(q=>h('option',{value:q,text:q==='0'?'Cả năm (đánh giá cuối năm)':'Quý '+q})));qs.value=S.quarter;
  const ys=h('input',{type:'number',value:S.year,onchange:e=>pick(String(e.target.value||Y0),S.quarter)});
- root.append(h('div',{class:'banner'+(db&&uid?'':' warn'),text:db&&uid?'Bản chấm của bạn tự động lưu vào hệ thống; chỉ bạn và người quản trị xem được. Tải minh chứng ngay tại từng nhóm tiêu chí hoặc từng nhiệm vụ.':'Chế độ cá nhân: bản chấm chỉ lưu tạm trên thiết bị này và người quản trị chưa nhìn thấy. Hãy mở bằng liên kết được chia sẻ và đăng nhập để nộp lên hệ thống.'}),
-  h('div',{class:'card'},h('h2',{text:'Mẫu số 03 – Thông tin cá nhân'}),h('div',{class:'grid'},fld(S.info,'org','Đảng ủy / cơ quan, đơn vị','VD: Chi bộ Trường TH&THCS Vĩnh Gia 2'),fld(S.info,'name','Họ và tên'),fld(S.info,'dob','Ngày sinh'),fld(S.info,'partyRole','Chức vụ Đảng'),fld(S.info,'govRole','Chức vụ chính quyền'),fld(S.info,'unionRole','Chức vụ đoàn thể'),fld(S.info,'unit','Đơn vị công tác'),fld(S.info,'place','Địa danh (nơi ký)','VD: Vĩnh Gia'),h('label',{class:'f'},'Kỳ đánh giá',qs),h('label',{class:'f'},'Năm',ys))));
+ root.append(h('div',{class:'card'},h('h2',{text:'Chọn kỳ đánh giá trước khi nhập'}),h('div',{class:'grid'},h('label',{class:'f'},'Kỳ đánh giá',qs),h('label',{class:'f'},'Năm',ys)),h('p',{class:'hint',text:'Thông tin cá nhân ở dưới được giữ nguyên khi bạn đổi kỳ; mỗi kỳ có bản chấm riêng.'})),
+  h('div',{class:'banner'+(db&&uid?'':' warn'),text:db&&uid?'Bản chấm của bạn tự động lưu vào hệ thống; chỉ bạn và người quản trị xem được. Tải minh chứng ngay tại từng nhóm tiêu chí hoặc từng nhiệm vụ.':'Chế độ cá nhân: bản chấm chỉ lưu tạm trên thiết bị này và người quản trị chưa nhìn thấy. Hãy mở bằng liên kết được chia sẻ và đăng nhập để nộp lên hệ thống.'}),
+  h('div',{class:'card'},h('h2',{text:'Mẫu số 03 – Thông tin cá nhân'}),h('div',{class:'grid'},fld(S.info,'party','Đảng bộ','VD: Đảng bộ xã Vĩnh Gia'),fld(S.info,'org','Chi bộ','VD: Chi bộ Trường TH&THCS Vĩnh Gia 2'),fld(S.info,'name','Họ và tên'),fld(S.info,'dob','Ngày sinh'),fld(S.info,'partyRole','Chức vụ Đảng'),fld(S.info,'govRole','Chức vụ chính quyền'),fld(S.info,'unionRole','Chức vụ đoàn thể'),fld(S.info,'unit','Đơn vị công tác'),fld(S.info,'place','Địa danh (nơi ký)','VD: Vĩnh Gia'))));
  R.A=h('b'),R.B=h('b'),R.T=h('b'),R.L=h('b');
  root.append(h('div',{class:'bar'},h('div',{class:'s'},R.A,h('span',{text:'Tiêu chí chung / 30'})),h('div',{class:'s'},R.B,h('span',{text:'Nhiệm vụ / 70'})),h('div',{class:'s t'},R.T,h('span',{text:'Tổng điểm / 100'})),h('div',{class:'s'},R.L,h('span',{text:'Tự xếp loại'})),h('span',{class:'hint sp',id:'st'})));
  /* A */
  const tb=h('tbody');
  GT.forEach((g,gi)=>{
   const gs=h('td',{class:'n'});R.gp[gi]=gs;
-  tb.append(h('tr',{class:'g'},h('td',{class:'c',text:String(gi+1)}),h('td',{text:g.t}),h('td'),h('td'),h('td',{class:'c',text:String(g.max)}),gs,h('td')));
+  tb.append(h('tr',{class:'g'},h('td',{class:'c',text:String(gi+1)}),h('td',{text:g.t}),h('td'),h('td'),h('td',{class:'c',text:fmt(g.max)}),gs,h('td')));
   IT.filter(i=>gOf(i[0])===gi).forEach(i=>{const id=i[0],v=av(S.a[id]);
    const c1=h('input',{type:'checkbox',checked:v===1}),c2=h('input',{type:'checkbox',checked:v===2});
    c1.onchange=()=>{S.a[id]=c1.checked?1:0;if(c1.checked)c2.checked=false;dirty();};
    c2.onchange=()=>{S.a[id]=c2.checked?2:0;if(c2.checked)c1.checked=false;dirty();};
    const pt=h('td',{class:'n',text:'0'});R.it[id]=pt;
-   tb.append(h('tr',null,h('td',{class:'c',text:id}),h('td',{text:i[2]}),h('td',{class:'c'},h('label',{class:'chk'},c1)),h('td',{class:'c'},h('label',{class:'chk'},c2)),h('td',{class:'c',text:String(i[1])}),pt,h('td',null,h('input',{type:'text',value:S.an[id]||'',oninput:e=>{S.an[id]=e.target.value;dirty();}}))));});
+   tb.append(h('tr',null,h('td',{class:'c',text:id}),h('td',{text:i[2]}),h('td',{class:'c'},h('label',{class:'chk'},c1)),h('td',{class:'c'},h('label',{class:'chk'},c2)),h('td',{class:'c',text:fmt(i[1])}),pt,h('td',null,h('input',{type:'text',value:S.an[id]||'',oninput:e=>{S.an[id]=e.target.value;dirty();}}))));});
   const ev=S.ev['g'+(gi+1)]=S.ev['g'+(gi+1)]||[];tb.append(h('tr',null,h('td'),h('td',{colspan:6},h('span',{class:'hint',text:'Minh chứng nhóm '+(gi+1)+': '}),evBox(ev))));
  });
  R.At=h('td',{class:'n'});tb.append(h('tr',{class:'tot'},h('td'),h('td',{text:'Tổng (A) ='}),h('td'),h('td'),h('td',{class:'c',text:'30'}),R.At,h('td')));
- root.append(h('div',{class:'card'},h('h2',{text:'A. Nhóm tiêu chí chung (30 điểm)'}),h('p',{class:'hint',text:'Đánh dấu X vào cột “Đảm bảo” hoặc “Không đảm bảo”. Chấm tối đa nếu đảm bảo; chấm 0 điểm nếu không đảm bảo.'}),
+ root.append(h('div',{class:'card'},h('h2',{text:'A. Nhóm tiêu chí chung (30 điểm) – Phụ lục 4, Quy định 366-QĐ/TW'}),h('p',{class:'hint',text:'Đánh dấu X vào cột “Đảm bảo” hoặc “Không đảm bảo”. Chấm tối đa nếu đảm bảo; chấm 0 điểm nếu không đảm bảo.'}),
   h('div',{class:'row',style:'margin-bottom:8px'},h('button',{class:'btn ghost sm',text:'Đảm bảo tất cả',onclick:()=>{IT.forEach(i=>S.a[i[0]]=1);dirty();render();}}),h('button',{class:'btn ghost sm',text:'Bỏ chọn tất cả',onclick:()=>{S.a={};dirty();render();}})),
   h('div',{class:'wrap'},h('table',{style:'min-width:860px'},h('thead',null,h('tr',null,['TT','Tiêu chí / Nội dung','Đảm bảo (X)','Không đảm bảo (X)','Điểm tối đa','Điểm đạt','Ghi chú'].map(x=>h('th',{text:x})))),tb))));
  /* B */
  R.sum=h('span',{class:'hint'});
- const bc=h('div',{class:'card'},h('h2',{text:'B. Kết quả thực hiện nhiệm vụ được giao (70 điểm) – 6 trục kết quả'}),
+ const bc=h('div',{class:'card'},h('h2',{text:'B. Kết quả thực hiện nhiệm vụ được giao (70 điểm) – 6 trục kết quả'}),h('p',{class:'hint',text:'Phụ lục 4, Mục II (khối đơn vị sự nghiệp công lập): (a) mức độ hoàn thành nhiệm vụ chuyên môn được cấp có thẩm quyền giao, có tham gia bồi dưỡng nghiệp vụ, cập nhật kiến thức; (b) giao tiếp chuẩn mực, văn minh, hợp tác tốt với đồng nghiệp. Kết quả lượng hóa bằng sản phẩm, tiến độ, chất lượng của từng nhiệm vụ.'}),
   h('p',{class:'hint',text:'Theo Phụ lục 2: Điểm KPI = (A+B+C+D)/4 với A – số lượng, B – chất lượng, C – tiến độ, D – lãnh đạo, chỉ đạo, điều hành. Mỗi nhiệm vụ nhập số lượng kế hoạch và hệ số quy đổi (độ khó); các cột A, B, C, D nhập “thực tế hoàn thành” theo cùng đơn vị số lượng (VD: kế hoạch 2 báo cáo, hoàn thành đủ nhưng phải sửa 1–2 lần ⇒ B = 0,75). Để trống B, C, D thì bằng số lượng hoàn thành. Làm vượt mức: nhập số lớn hơn kế hoạch ở B, C, D để ghi nhận mức nổi trội. Điểm đạt của trục = KPI × điểm tối đa của trục.'}),
   h('p',{class:'hint',text:'Theo HD 14 (mục 1.5): cá nhân tự xác định trục chính (tỷ trọng điểm cao hơn) và trục phụ (thấp hơn). Mặc định theo Mẫu số 03: 30 – 15 – 10 – 5 – 5 – 5; có thể điều chỉnh ô “Điểm tối đa”, hệ thống tự quy đổi tổng về 70.'}),R.sum);
  AX.forEach(m=>{
@@ -295,9 +310,11 @@ function render(){
  R.autoRes=h('div');
  const dxs=h('select',{onchange:e=>{S.dx=e.target.value;dirty();}},h('option',{value:'',text:'Theo mức tự động tính được'}),LV.map((l,i)=>h('option',{value:String(i),text:l})));dxs.value=S.dx===''||S.dx==null?'':String(S.dx);
  R.auto=h('div',{class:'card auto'},h('h2',{text:'II. Tự xếp loại và đề xuất mức chất lượng'}),R.autoRes,
-  h('div',{class:'flags'},h('b',{text:'Các trường hợp đặc biệt (HD 14, mục 6):'}),
+  h('div',{class:'flags'},h('b',{text:'Các trường hợp đặc biệt (Quy định 366-QĐ/TW, Điều 11; HD 14, mục 6):'}),
    chk(S.flags,'head','Tôi là người đứng đầu cấp ủy, tập thể lãnh đạo, quản lý'),
    chk(S.flags,'col70','Tập thể, đơn vị tôi phụ trách hoàn thành dưới 70% nhiệm vụ, chỉ tiêu được giao'),
+   chk(S.flags,'vp','Bị kết luận có biểu hiện suy thoái, vi phạm điều đảng viên không được làm / trách nhiệm nêu gương, hoặc bị kỷ luật từ khiển trách trở lên liên quan công vụ (Điều 11, 4.3a)'),
+   chk(S.flags,'kp','Chưa khắc phục 100% hạn chế, khuyết điểm đã được chỉ ra ở kỳ kiểm điểm trước (Điều 11, 1.4)'),
    chk(S.flags,'kl','Có kết luận của cấp có thẩm quyền thuộc diện “Không hoàn thành nhiệm vụ”'),
    chk(S.flags,'bk','Có nhiệm vụ chưa hoàn thành do lý do khách quan, bất khả kháng (cấp có thẩm quyền xác nhận)'),
    fld(S.flags,'bkReason','Nêu lý do cụ thể (bắt buộc nếu tích mục trên)'),
@@ -324,8 +341,8 @@ function sigCard(){
 function upd(){
  if(!R||!R.A)return;const c=calc(S);
  R.A.textContent=fmt(c.A);R.B.textContent=fmt(c.B);R.T.textContent=fmt(c.T);R.At.textContent=fmt(c.A);
- IT.forEach(i=>R.it[i[0]].textContent=av(S.a[i[0]])===1?String(i[1]):'0');
- c.gp.forEach((v,g)=>R.gp[g].textContent=String(v));
+ IT.forEach(i=>R.it[i[0]].textContent=av(S.a[i[0]])===1?fmt(i[1]):'0');
+ c.gp.forEach((v,g)=>R.gp[g].textContent=fmt(v));
  R.sum.textContent=Math.abs(c.sm-70)<1e-9?'Tổng điểm tối đa các trục áp dụng: 70.':'Tổng điểm tối đa các trục áp dụng là '+fmt(c.sm)+' – hệ thống tự quy đổi về 70 điểm.';
  c.ax.forEach((a,i)=>{const rf=R.ax[a.id];if(!rf)return;
   rf.pts.textContent=a.na?'N/A':fmt(a.pts)+' / '+fmt(a.eff)+' điểm';
@@ -363,14 +380,13 @@ function formHTML(r,c,per,adm){
    K+='<tr class="gr"><td></td><td>Tổng trục '+a.id+'</td><td></td><td></td><td></td><td></td><td class="c">'+fmt(a.P)+'</td><td></td><td class="c">'+fmt(a.Sa)+'</td><td></td><td class="c">'+fmt(a.Sb)+'</td><td></td><td class="c">'+fmt(a.Sc)+'</td><td class="c">'+fmt(a.Sd)+'</td></tr><tr><td colspan="14"><i>A = '+pct(a.A)+'; B = '+pct(a.B)+'; C = '+pct(a.C)+'; D = '+pct(a.D)+' ⇒ KPI = (A+B+C+D)/4 = '+pct(a.kpi)+'; điểm đạt = '+fmt(a.pts)+'/'+fmt(a.eff)+'</i></td></tr>';}});
  const tt=[];c.ax.forEach((a,i)=>((r.ax||{})[a.id]||[]).forEach(t=>{if(t.muc)tt.push(esc(t.name||'')+': '+esc(MUC[+t.muc].replace(/^\(\d\)\s*/,'')));}));
  const ad=adm||{};
- return '<div class="pg"><table class="hd"><tr><td style="width:48%;text-align:center"><b>ĐẢNG ỦY/CƠ QUAN, ĐƠN VỊ</b><br>'+esc(I.org||'……………………')+'</td><td style="text-align:center"><b>ĐẢNG CỘNG SẢN VIỆT NAM</b><br><i>'+esc(I.place||'……')+', ngày '+d.getDate()+' tháng '+(d.getMonth()+1)+' năm '+d.getFullYear()+'</i></td></tr></table>'
+ return '<div class="pg"><table class="hd"><tr><td style="width:48%;text-align:center"><b>ĐẢNG BỘ '+esc((I.party||'……………………').replace(/^Đảng bộ\s+/i,''))+'</b><br><b>CHI BỘ '+esc((I.org||'……………………').replace(/^Chi bộ\s+/i,''))+'</b></td><td style="text-align:center"><b>ĐẢNG CỘNG SẢN VIỆT NAM</b><br><i>'+esc(I.place||'……')+', ngày '+d.getDate()+' tháng '+(d.getMonth()+1)+' năm '+d.getFullYear()+'</i></td></tr></table>'
  +'<h2 class="tt">BẢN TỰ ĐÁNH GIÁ, CHẤM ĐIỂM VÀ XẾP LOẠI CỦA CÁ NHÂN</h2><p class="c"><b>'+qt+', Năm '+esc(r.year)+'</b></p>'
  +'<p>Họ và tên: <b>'+esc(I.name||'……………')+'</b> &nbsp; Ngày sinh: '+esc(I.dob||'……………')+'</p><p>Chức vụ Đảng: '+esc(I.partyRole||'……………')+'</p><p>Chức vụ chính quyền: '+esc(I.govRole||'……………')+'</p><p>Chức vụ đoàn thể: '+esc(I.unionRole||'……………')+'</p><p>Đơn vị công tác: '+esc(I.unit||'……………')+'</p>'
  +'<p><b>I. Tự đánh giá kết quả thực hiện nhiệm vụ</b></p><p><i>Trên cơ sở nhiệm vụ được giao, cá nhân tự đánh giá về kết quả thực hiện nhiệm vụ theo quý như sau:</i></p>'
  +'<p><b>A. NHÓM TIÊU CHÍ CHUNG (30 ĐIỂM)</b></p><table class="t"><thead><tr><th>TT</th><th>Tiêu chí / Nội dung</th><th>Đảm bảo (X)</th><th>Không đảm bảo (X)</th><th>Điểm tối đa</th><th>Điểm đạt</th><th>Ghi chú</th></tr></thead><tbody>'+A+'</tbody></table>'
  +'<p><b>B. KẾT QUẢ THỰC HIỆN NHIỆM VỤ ĐƯỢC GIAO (70 ĐIỂM)</b></p><table class="t"><thead><tr><th>TT</th><th>Tiêu chí / Nội dung</th><th>Mục tiêu, nhiệm vụ đề ra (1)</th><th>Kết quả sản phẩm thực tế (2)</th><th>Điểm KPI (%) (2)/(1)</th><th>Điểm tối đa</th><th>Điểm đạt (= KPI × Điểm tối đa)</th><th>Ghi chú</th></tr></thead><tbody>'+B
  +'<tr class="gr"><td></td><td>TỔNG (B) =</td><td></td><td></td><td></td><td class="c">70</td><td class="c">'+fmt(c.B)+'</td><td></td></tr><tr class="gr"><td></td><td>TỔNG (A) + (B) =</td><td></td><td></td><td></td><td class="c">100</td><td class="c">'+fmt(c.T)+'</td><td></td></tr></tbody></table>'
- +'<p><b>Phụ biểu: Bảng chấm điểm KPI theo từng nhiệm vụ (Phụ lục 2)</b></p><table class="t s"><thead><tr><th>TT</th><th>Nhiệm vụ</th><th>Sản phẩm</th><th>SL</th><th>Tiến độ</th><th>Hệ số</th><th>SL quy đổi</th><th>A thực tế</th><th>A quy đổi</th><th>B thực tế</th><th>B quy đổi</th><th>C thực tế</th><th>C quy đổi</th><th>D thực tế</th></tr></thead><tbody>'+K+'</tbody></table>'
  +'<p><b>II. Tự đề xuất xếp loại mức chất lượng: '+LV[dv]+'</b></p><p><i>(Theo 04 mức: 1- Hoàn thành xuất sắc nhiệm vụ, 2- Hoàn thành tốt nhiệm vụ, 3- Hoàn thành nhiệm vụ và 4- Không hoàn thành nhiệm vụ)</i></p>'
  +'<div class="sg"><b>CÁ NHÂN TỰ ĐÁNH GIÁ</b><br><i>(Ký, ghi rõ họ tên)</i><br>'+(r.sig?'<img src="'+esc(r.sig)+'" alt="Chữ ký">':'<div style="height:70px"></div>')+'<br><b>'+esc(I.name||'')+'</b></div>'
  +'<p><b>III. Nhận xét, đánh giá của cấp có thẩm quyền</b></p><p>- Chấm điểm: '+(ad.level?fmt(c.T)+' điểm':'……………')+'</p><p>- Đề xuất xếp loại: '+esc(ad.level||'……………………………')+'</p>'+(ad.note?'<p>- Nhận xét: '+esc(ad.note)+'</p>':'')+'<p>- Mức độ đáp ứng đối với các mục tiêu, nhiệm vụ then chốt: '+(tt.length?'<br>(Cá nhân tự đánh giá) '+tt.join('; '):'……………')+'</p>'
