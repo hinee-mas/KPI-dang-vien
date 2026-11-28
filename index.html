@@ -104,7 +104,7 @@ nav .in{justify-content:center}
 <main><section id="me"></section><section id="ad" hidden></section></main>
 <script>
 /* ===== CẤU HÌNH: dán địa chỉ Web app của Google Apps Script vào đây để cả chi bộ nộp chung về một trang tính ===== */
-window.KPI_API='https://script.google.com/macros/s/AKfycbyz-ejCXUVVq40MguRops49IuVf5yNcxOWNGGsco1wvKetpdp_XX9tSpcqqNbjmCSkB/exec';/* DÁN địa chỉ Web app Apps Script (…/exec) vào giữa hai dấu nháy để BẬT đăng nhập + nộp chung. Để trống = chế độ cá nhân, KHÔNG có đăng nhập. */
+window.KPI_API='';/* DÁN địa chỉ Web app Apps Script (…/exec) vào giữa hai dấu nháy để BẬT đăng nhập + nộp chung. Để trống = chế độ cá nhân, KHÔNG có đăng nhập. */
 if(!window.KPI_API)document.addEventListener('DOMContentLoaded',()=>{const b=document.createElement('div');b.style.cssText='background:#fff3d6;color:#7a4b00;border-bottom:2px solid #c8962b;padding:8px 14px;font:600 13px Segoe UI,Arial,sans-serif;text-align:center';b.textContent='⚠ Chưa cấu hình KPI_API: bước đăng nhập và nộp chung đang TẮT (chế độ cá nhân). Xem README, Bước 2.';document.body.prepend(b);});
 /* ===== Lớp kết nối Google Sheets (chỉ chạy khi có KPI_API và không mở trong claude.ai) ===== */
 (function(){
@@ -352,6 +352,9 @@ function upd(){
  const el=R.autoRes;el.textContent='';
  el.append(c.done?h('p',{class:'ok',text:'✔ Đã đánh giá xong tất cả các mục – hệ thống tự xếp loại như sau:'}):h('p',{class:'warnp',text:'Chưa đánh giá xong: còn '+c.miss+' tiêu chí chung chưa đánh dấu; '+c.pend+' trục chưa có nhiệm vụ'+(c.ntask?'':' (chưa nhập nhiệm vụ nào)')+'. Mức dưới đây chỉ là tạm tính.'}),
   h('div',{class:'big lv'+rt.lv+(c.done?'':' tam'),text:(c.done?'':'(Tạm tính) ')+rt.name}),
+  (()=>{const pl=c.T>=90?0:c.T>=70?1:c.T>=50?2:3;if(rt.lv<=pl)return null;
+   const bad=rt.why.slice(1).filter(w=>/⇒/.test(w)&&/Không hoàn thành|không đủ điều kiện|chưa đủ điều kiện|chỉ đạt mức/.test(w));
+   return h('div',{class:'warnp',style:'border:2px solid #b3261e;background:#fdecea;color:#7a1a14'},h('b',{text:'Điểm đạt mức “'+LV[pl]+'” nhưng bị hạ xuống “'+rt.name+'” vì:'}),h('ul',null,bad.map(w=>h('li',{text:w}))),h('p',{class:'hint',text:'Cách xử lý: kiểm tra lại cột Thực hiện / Kế hoạch của nhiệm vụ được nêu; nếu nhập sai thì sửa. Nếu thật sự chưa hoàn thành do lý do khách quan, bất khả kháng thì tích ô lý do bên dưới để cấp có thẩm quyền xem xét.'}));})(),
   h('p',null,'A = ',h('b',{text:fmt(c.A)+'/30'}),' · B = ',h('b',{text:fmt(c.B)+'/70'}),' · Tổng = ',h('b',{text:fmt(c.T)+'/100'})),
   h('ul',null,rt.why.map(w=>h('li',{text:w}))));
  const dv=S.dx===''||S.dx==null?rt.lv:+S.dx;
