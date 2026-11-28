@@ -42,3 +42,6 @@ Từ đó: đảng viên đăng nhập bằng họ tên + mã PIN tự đặt; d
 - Xếp loại theo **Điều 11**: ngưỡng 90/70/50; xuất sắc cần ≥30% nhiệm vụ vượt mức; chậm tiến độ ≤20% nhiệm vụ mới còn đạt "Hoàn thành"; >50% nhiệm vụ không hoàn thành hoặc vi phạm điều đảng viên không được làm ⇒ "Không hoàn thành".
 - Bản chấm đã lưu theo mã tiêu chí cũ (1.1 … 3.4) sẽ không còn khớp, cần đánh dấu lại phần A.
 - Đăng nhập chỉ hoạt động khi `window.KPI_API` có địa chỉ `/exec`; nếu để trống, đầu trang hiện dòng cảnh báo vàng.
+
+## Đổi mã PIN (đảng viên)
+Sau khi đăng nhập, bấm nút **Đổi mã PIN** ở đầu trang: nhập PIN hiện tại, PIN mới (4–8 chữ số) và nhập lại. Toàn bộ bản chấm, xếp loại, nhận xét được chuyển sang mã mới. Cần dán lại `Code.gs` mới và **Triển khai phiên bản mới** để tính năng này chạy. Quên PIN hiện tại thì không tự đổi được (hệ thống không lưu PIN).

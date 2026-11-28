@@ -104,7 +104,7 @@ nav .in{justify-content:center}
 <main><section id="me"></section><section id="ad" hidden></section></main>
 <script>
 /* ===== CẤU HÌNH: dán địa chỉ Web app của Google Apps Script vào đây để cả chi bộ nộp chung về một trang tính ===== */
-window.KPI_API='https://script.google.com/macros/s/AKfycbyz-ejCXUVVq40MguRops49IuVf5yNcxOWNGGsco1wvKetpdp_XX9tSpcqqNbjmCSkB/exec';/* DÁN địa chỉ Web app Apps Script (…/exec) vào giữa hai dấu nháy để BẬT đăng nhập + nộp chung. Để trống = chế độ cá nhân, KHÔNG có đăng nhập. */
+window.KPI_API='';/* DÁN địa chỉ Web app Apps Script (…/exec) vào giữa hai dấu nháy để BẬT đăng nhập + nộp chung. Để trống = chế độ cá nhân, KHÔNG có đăng nhập. */
 if(!window.KPI_API)document.addEventListener('DOMContentLoaded',()=>{const b=document.createElement('div');b.style.cssText='background:#fff3d6;color:#7a4b00;border-bottom:2px solid #c8962b;padding:8px 14px;font:600 13px Segoe UI,Arial,sans-serif;text-align:center';b.textContent='⚠ Chưa cấu hình KPI_API: bước đăng nhập và nộp chung đang TẮT (chế độ cá nhân). Xem README, Bước 2.';document.body.prepend(b);});
 /* ===== Lớp kết nối Google Sheets (chỉ chạy khi có KPI_API và không mở trong claude.ai) ===== */
 (function(){
@@ -134,7 +134,24 @@ if(!window.KPI_API)document.addEventListener('DOMContentLoaded',()=>{const b=doc
    }catch(e){msg.textContent='Không kết nối được máy chủ. Kiểm tra mạng hoặc địa chỉ KPI_API.';$g('g_b').disabled=false;}
   };
  });}
- const ensure=async()=>{if(!gp)gp=gate().then(s=>{sess=s;const b=document.createElement('button');b.className='btn ghost sm';b.style.cssText='color:#fff;border-color:#fff;margin-top:4px';b.textContent='Đăng xuất';b.onclick=()=>{sessionStorage.removeItem('kpi_sess');location.reload();};const hr=document.querySelector('.hero');if(hr)hr.append(b);});await gp;};
+ function changePin(){
+  const m=document.createElement('div');m.className='modal';
+  m.innerHTML='<div class="box" style="max-width:420px;margin:auto"><h2 style="margin:0 0 10px;color:var(--red2)">Đổi mã PIN</h2><label class="f">PIN hiện tại<input type="password" inputmode="numeric" id="c_o" autocomplete="off"></label><label class="f" style="margin-top:8px">PIN mới (4–8 chữ số)<input type="password" inputmode="numeric" id="c_n" autocomplete="off"></label><label class="f" style="margin-top:8px">Nhập lại PIN mới<input type="password" inputmode="numeric" id="c_r" autocomplete="off"></label><p class="hint" id="c_m" style="color:var(--bad)"></p><div class="row"><button class="btn" id="c_b">Đổi mã PIN</button><button class="btn ghost" id="c_x">Hủy</button></div></div>';
+  const g=i=>m.querySelector('#'+i);g('c_x').onclick=()=>m.remove();
+  g('c_b').onclick=async()=>{
+   const o=g('c_o').value.trim(),n=g('c_n').value.trim(),r=g('c_r').value.trim(),msg=g('c_m');msg.textContent='';
+   if(!/^\d{4,8}$/.test(n)){msg.textContent='PIN mới gồm 4–8 chữ số.';return;}
+   if(n!==r){msg.textContent='PIN nhập lại chưa khớp.';return;}
+   if(n===o){msg.textContent='PIN mới phải khác PIN hiện tại.';return;}
+   const base=slug(sess.name),ou=base+'-'+(await sha('kpi|'+base+'|'+o)).slice(0,12);
+   if(ou!==sess.uid){msg.textContent='PIN hiện tại chưa đúng.';return;}
+   g('c_b').disabled=true;
+   try{const nu=base+'-'+(await sha('kpi|'+base+'|'+n)).slice(0,12);await post({action:'rename',uid:ou,newUid:nu});
+    sess.uid=nu;sessionStorage.setItem('kpi_sess',JSON.stringify(sess));m.remove();toast('Đã đổi mã PIN. Lần sau hãy đăng nhập bằng PIN mới.');setTimeout(()=>location.reload(),1500);}
+   catch(e){msg.textContent=(e&&e.message)||'Không đổi được mã PIN.';g('c_b').disabled=false;}};
+  document.body.append(m);
+ }
+ const ensure=async()=>{if(!gp)gp=gate().then(s=>{sess=s;const b=document.createElement('button');b.className='btn ghost sm';b.style.cssText='color:#fff;border-color:#fff;margin-top:4px';b.textContent='Đăng xuất';b.onclick=()=>{sessionStorage.removeItem('kpi_sess');location.reload();};const b2=document.createElement('button');b2.className='btn ghost sm';b2.style.cssText='color:#fff;border-color:#fff;margin:4px 0 0 6px';b2.textContent='Đổi mã PIN';b2.onclick=changePin;const hr=document.querySelector('.hero');if(hr){hr.append(b);hr.append(b2);}});await gp;};
  const U={id:async()=>sess.uid,me:async()=>({id:sess.uid,name:sess.name,isOwner:sess.admin,canEdit:sess.admin}),canEdit:async()=>sess.admin,isOwner:async()=>sess.admin};
  const snap=(id,d)=>({id,exists:d!=null,data:()=>d==null?undefined:d});
  let lc=null,lct=0;const list=async()=>{if(lc&&Date.now()-lct<3000)return lc;lc=await post({action:'list',adminPin:sess.adminPin});lct=Date.now();return lc;};
@@ -232,11 +249,11 @@ const key=()=>S.year+'Q'+S.quarter;
 function pick(y,q){let pv=null;if(S&&S.year){const st=$('#st');if(st&&st.textContent==='Đang lưu…'){clearTimeout(tm);save();}pv=JSON.parse(JSON.stringify(S.info||{}));}
  const ex=MY.periods[y+'Q'+q];S=ex||newS(y,q);if(!ex&&pv)S.info=Object.assign({},S.info,pv);S.info=S.info||{};S.flags=S.flags||{};S.mx=S.mx||{};S.an=S.an||{};S.ax=S.ax||{};AX.forEach(m=>{S.ax[m[0]]=S.ax[m[0]]||[];});S.ev=S.ev||{};S.na=S.na||{};S.a=S.a||{};render();}
 function dirty(){const st=$('#st');if(st)st.textContent='Đang lưu…';clearTimeout(tm);tm=setTimeout(save,1200);upd();}
-async function save(){
+async function save(manual){
  const st=$('#st');S.updated=Date.now();MY.periods[key()]=JSON.parse(JSON.stringify(S));
- if(!db||!uid){try{localStorage.setItem('kpi_local2',JSON.stringify(MY));if(st)st.textContent='Đã lưu tạm trên thiết bị này';}catch(e){if(st)st.textContent='Chưa lưu được';}return;}
- try{await db.doc('kpi/'+uid).set({uid,name:S.info.name||(who&&who.name)||'',periods:MY.periods});if(st)st.textContent='Đã lưu '+new Date().toLocaleTimeString('vi-VN');}
- catch(e){if(st)st.textContent='Chưa lưu được: '+((e&&e.message)||'lỗi');}
+ if(!db||!uid){try{localStorage.setItem('kpi_local2',JSON.stringify(MY));if(st)st.textContent='Đã lưu tạm trên thiết bị này';if(manual===true)toast('Đã lưu trên thiết bị này. CHƯA gửi lên Google Trang tính vì bạn chưa đăng nhập hoặc chưa cấu hình KPI_API.',true);}catch(e){if(st)st.textContent='Chưa lưu được';if(manual===true)toast('Không lưu được trên thiết bị này.',true);}return;}
+ try{await db.doc('kpi/'+uid).set({uid,name:S.info.name||(who&&who.name)||'',periods:MY.periods});if(st)st.textContent='Đã lưu '+new Date().toLocaleTimeString('vi-VN');if(manual===true)toast('✔ Đã lưu lên Google Trang tính lúc '+new Date().toLocaleTimeString('vi-VN'));}
+ catch(e){if(st)st.textContent='Chưa lưu được: '+((e&&e.message)||'lỗi');if(manual===true)toast('Chưa lưu được lên máy chủ: '+((e&&e.message)||'lỗi')+'. Kiểm tra mạng rồi bấm Lưu ngay lại.',true);}
 }
 async function upload(list,files){
  let as=null;try{as=await claude.use('assets');}catch(e){}
@@ -322,7 +339,7 @@ function render(){
  root.append(R.auto);
  /* Chữ ký */
  root.append(sigCard());
- R.rate=h('div',{class:'card'});root.append(R.rate,h('div',{class:'row'},h('button',{class:'btn',text:'Xem trước, in hoặc lưu PDF Mẫu số 03',onclick:()=>openPrint(S,calc(S),MY.periods,RT.periods&&RT.periods[key()])}),h('button',{class:'btn ghost',text:'Lưu ngay',onclick:save}),h('button',{class:'btn ghost',text:'Tải Excel của tôi',onclick:()=>exportXlsx([{d:{uid,name:S.info.name,periods:{[key()]:S}},k:key()}],'kpi-cua-toi')})));
+ R.rate=h('div',{class:'card'});root.append(R.rate,h('div',{class:'row'},h('button',{class:'btn',text:'Xem trước, in hoặc lưu PDF Mẫu số 03',onclick:()=>openPrint(S,calc(S),MY.periods,RT.periods&&RT.periods[key()])}),h('button',{class:'btn ghost',text:'Lưu ngay',onclick:()=>save(true)}),h('button',{class:'btn ghost',text:'Tải Excel của tôi',onclick:()=>exportXlsx([{d:{uid,name:S.info.name,periods:{[key()]:S}},k:key()}],'kpi-cua-toi')})));
  upd();showRate();
 }
 function sigCard(){
