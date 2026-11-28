@@ -104,7 +104,7 @@ nav .in{justify-content:center}
 <main><section id="me"></section><section id="ad" hidden></section></main>
 <script>
 /* ===== CẤU HÌNH: dán địa chỉ Web app của Google Apps Script vào đây để cả chi bộ nộp chung về một trang tính ===== */
-window.KPI_API='https://script.google.com/macros/s/AKfycbx3gPCao-DCnl0De1QlBLuWox6jSx6D6VrchrFZTr-RAXAQzyqwajg8pjsoBZybau98/exec';/* DÁN địa chỉ Web app Apps Script (…/exec) vào giữa hai dấu nháy để BẬT đăng nhập + nộp chung. Để trống = chế độ cá nhân, KHÔNG có đăng nhập. */
+window.KPI_API='';/* DÁN địa chỉ Web app Apps Script (…/exec) vào giữa hai dấu nháy để BẬT đăng nhập + nộp chung. Để trống = chế độ cá nhân, KHÔNG có đăng nhập. */
 if(!window.KPI_API)document.addEventListener('DOMContentLoaded',()=>{const b=document.createElement('div');b.style.cssText='background:#fff3d6;color:#7a4b00;border-bottom:2px solid #c8962b;padding:8px 14px;font:600 13px Segoe UI,Arial,sans-serif;text-align:center';b.textContent='⚠ Chưa cấu hình KPI_API: bước đăng nhập và nộp chung đang TẮT (chế độ cá nhân). Xem README, Bước 2.';document.body.prepend(b);});
 /* ===== Lớp kết nối Google Sheets (chỉ chạy khi có KPI_API và không mở trong claude.ai) ===== */
 (function(){
